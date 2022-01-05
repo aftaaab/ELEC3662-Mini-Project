@@ -15,7 +15,7 @@ int main(void){
 	PortE_Init();
 	PortF_Init();
 	SysTick_Init();
-  PLL_Init();
+  	PLL_Init();
 	eepromInit();
 	InitDisplayPort();
 	
