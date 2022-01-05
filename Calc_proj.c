@@ -25,6 +25,6 @@ int main(void){
 		SysTick_Wait(118000);				// 1475us delay
 		SendDisplayByte_ins(0x0F);
 
-			//ask_pass();								// password prompt before accessing the calculator
+			ask_pass();								// password prompt before accessing the calculator
 			menu();										// shows 2 options to select which are, 1) Arithmetic and 2) Set Pass
 }
