@@ -50,4 +50,7 @@ https://user-images.githubusercontent.com/94575661/148177604-8c907da5-6b90-400b-
 
 https://user-images.githubusercontent.com/94575661/148177647-10c296e4-a1d5-4ae7-82ab-821575c58e6c.mp4
 
+# Known Bugs 
+
+1- Unrecognizable Symbol being printed on the display right after the changed password is printed (which can be seen in the video above).
 
