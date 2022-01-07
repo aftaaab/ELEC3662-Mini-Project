@@ -52,8 +52,10 @@ https://user-images.githubusercontent.com/94575661/148177647-10c296e4-a1d5-4ae7-
 
 # More Operations
 
-
-
+![IMG_20220103_142356](https://user-images.githubusercontent.com/94575661/148597184-f5bc6849-23cc-43af-95b4-04825d4f690b.jpg)
+![IMG_20220103_145227](https://user-images.githubusercontent.com/94575661/148597189-ef14084c-0fcc-4bb5-af44-479b8d65cc87.jpg)
+![IMG_20220103_161019](https://user-images.githubusercontent.com/94575661/148597193-da5c8f16-fcae-4766-bb26-f8e5746ce998.jpg)
+![IMG_20220107_232336](https://user-images.githubusercontent.com/94575661/148597195-ceb3c488-51a8-4d2b-b5e0-be112bb6794b.jpg)
 
 # Known Bugs 
 
