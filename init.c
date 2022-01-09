@@ -6,17 +6,17 @@
 #include<stdbool.h>
 #include<stdlib.h>
 #include<ctype.h>
-unsigned static char keyp_num[4][4] = { 	  {'1', 	'2', 	'3', 	'+'},					//{1, 2, 3, A,
-																						{'4', 	'5', 	'6', 	'-'},					// 4, 5, 6, B,
-																					  {'7', 	'8', 	'9', 	'.'},					// 7, 8, 9, C,
-																						{'*', 	'0', 	'#', 	' '}					// *, 0, #, D}
-																			};
+unsigned static char keyp_num[4][4] = { 	  {'1', '2', '3', '+'},					//{1, 2, 3, A,
+						  {'4', '5', '6', '-'},					// 4, 5, 6, B,
+						  {'7', '8', '9', '.'},					// 7, 8, 9, C,
+						  {'*', '0', '#', ' '}					// *, 0, #, D}
+					};
 
-unsigned static char keyp_num_s[4][4] = { 	{'1', 	'2', 	'3', 	'x'},					//{1, 2, 3, A,
-																						{'4', 	'5', 	'6', 	'/'},					// 4, 5, 6, B,
-																					  {'7', 	'8', 	'9', 	'E'},					// 7, 8, 9, C,
-																						{'*', 	'0', 	'#', 	' '}					// *, 0, #, D}	
-																			};
+unsigned static char keyp_num_s[4][4] = { 	  {'1', '2', '3', 'x'},					//{1, 2, 3, A,
+						  {'4', '5', '6', '/'},					// 4, 5, 6, B,
+						  {'7', '8', '9', 'E'},					// 7, 8, 9, C,
+						  {'*', '0', '#', ' '}					// *, 0, #, D}	
+					};
 																		
 unsigned static char icon_1[] = {0x04,0x0E,0x15,0x11,0x11,0x11,0x0A,0x04};
 unsigned static char icon_2[] = {0x04,0x0A,0x11,0x15,0x15,0x11,0x0A,0x04};
@@ -33,44 +33,44 @@ static char pwd[] = " ";
 
 
 void PortA_Init(void){ volatile unsigned long delay;
-  SYSCTL_RCGC2_R 			|= 0x1;    	// 1) A clock
-  delay 							= SYSCTL_RCGC2_R; 	//    delay          
-  GPIO_PORTA_AMSEL_R 	&= 0x00;        		// 2) disable analog function
-  GPIO_PORTA_PCTL_R 	&= 0x00000000;   		// 3) GPIO clear bit PCTL  
+  SYSCTL_RCGC2_R 		|= 0x1;    	// 1) A clock
+  delay 		        = SYSCTL_RCGC2_R; 	//    delay          
+  GPIO_PORTA_AMSEL_R 	        &= 0x00;        		// 2) disable analog function
+  GPIO_PORTA_PCTL_R 	        &= 0x00000000;   		// 3) GPIO clear bit PCTL  
   GPIO_PORTA_DIR_R 		|= 0xC;          		// 4) PA2 and PA3 outputs  
-  GPIO_PORTA_AFSEL_R 	&= 0x00;        		// 5) no alternate function      
+  GPIO_PORTA_AFSEL_R 	        &= 0x00;        		// 5) no alternate function      
   GPIO_PORTA_DEN_R 		|= 0xC;           	// 6) enable digital pins PA2 and PA3 (RS and E resp)       
 }
 
 void PortB_Init(void){ volatile unsigned long delay;
-  SYSCTL_RCGC2_R 			|= 0x2;     	// 1) B clock
-  delay 							= SYSCTL_RCGC2_R;  	//    delay          
-  GPIO_PORTB_AMSEL_R 	&= 0x00;        	 	// 2) disable analog function
-  GPIO_PORTB_PCTL_R 	&= 0x00000000;   		// 3) GPIO clear bit PCTL  
+  SYSCTL_RCGC2_R 		|= 0x2;     	// 1) B clock
+  delay 		         = SYSCTL_RCGC2_R;  	//    delay          
+  GPIO_PORTB_AMSEL_R 	        &= 0x00;        	 	// 2) disable analog function
+  GPIO_PORTB_PCTL_R 	        &= 0x00000000;   		// 3) GPIO clear bit PCTL  
   GPIO_PORTB_DIR_R 		|= 0x0F;          	// 4) PB0-3 LCD outputs    
-  GPIO_PORTB_AFSEL_R 	&= 0x00;        		// 5) no alternate function      
+  GPIO_PORTB_AFSEL_R 	        &= 0x00;        		// 5) no alternate function      
   GPIO_PORTB_DEN_R 		|= 0x0F;          	// 6) enable digital pins PB0-3     
 }
 
 void PortD_Init(void){ volatile unsigned long delay;
-  SYSCTL_RCGC2_R 			|= 0x8;     	// D clock
-  delay 							= SYSCTL_RCGC2_R;  	//    delay
-	GPIO_PORTD_LOCK_R		= 0x4C4F434B;				// unlock port D
-  GPIO_PORTD_AMSEL_R 	&= 0x00;        		// disable analog function
-  GPIO_PORTD_PCTL_R 	&= 0x00000000;   		// GPIO clear bit PCTL  
+  SYSCTL_RCGC2_R 		|= 0x8;     	// D clock
+  delay 			= SYSCTL_RCGC2_R;  	//    delay
+  GPIO_PORTD_LOCK_R		= 0x4C4F434B;				// unlock port D
+  GPIO_PORTD_AMSEL_R 	        &= 0x00;        		// disable analog function
+  GPIO_PORTD_PCTL_R 	        &= 0x00000000;   		// GPIO clear bit PCTL  
   GPIO_PORTD_DIR_R 		|= 0x0F;          	// PD0-3 outputs  (keypad cols as output to PD)
-  GPIO_PORTD_AFSEL_R 	&= 0x00;        		// no alternate function      
+  GPIO_PORTD_AFSEL_R 	        &= 0x00;        		// no alternate function      
   GPIO_PORTD_DEN_R 		|= 0x0F;           	// enable digital pins PD0-3        
 }
 
 void PortE_Init(void){ volatile unsigned long delay;
-  SYSCTL_RCGC2_R 			|= 0x10;     	// E clock
-  delay 							= SYSCTL_RCGC2_R;  	//    delay          
-  GPIO_PORTE_AMSEL_R 	&= 0x00;        		// disable analog function
-  GPIO_PORTE_PCTL_R 	&= 0x00000000;   		// GPIO clear bit PCTL  
+  SYSCTL_RCGC2_R 		|= 0x10;     	// E clock
+  delay 			= SYSCTL_RCGC2_R;  	//    delay          
+  GPIO_PORTE_AMSEL_R 	        &= 0x00;        		// disable analog function
+  GPIO_PORTE_PCTL_R 	        &= 0x00000000;   		// GPIO clear bit PCTL  
   GPIO_PORTE_DIR_R 		|= 0x00;          	// PE0-3 inputs  (keypad rows as input from PE)
-  GPIO_PORTE_AFSEL_R 	&= 0x00;        		// no alternate function
-	GPIO_PORTE_PDR_R 		|= 0x0F;           	// enable pulldown resistor on pins PE0-3 	
+  GPIO_PORTE_AFSEL_R 	        &= 0x00;        		// no alternate function
+  GPIO_PORTE_PDR_R 		|= 0x0F;           	// enable pulldown resistor on pins PE0-3 	
   GPIO_PORTE_DEN_R 		|= 0x0F;           	// enable digital pins PE0-3        
 }
 
