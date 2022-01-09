@@ -1,9 +1,6 @@
 #include "init.h"
 #include "password.h"
 
-/* Referenced from 
-https://github.com/el15cr/ELEC3662-Calculator
-*/
 
 
 // EEPROM defines
